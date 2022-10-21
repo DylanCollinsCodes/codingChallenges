@@ -1,0 +1,39 @@
+function score( dice ) {
+    let points = 0;
+    let numberCounts = numberCount(dice)
+    if(numberCounts[0] === 6){points += 2000}
+    else if(numberCounts[0] === 5){points += 1200}
+    else if(numberCounts[0] === 4){points += 1100}
+    else if(numberCounts[0] === 3){points += 1000}
+    else if(numberCounts[0] === 2){points += 200}
+    else if(numberCounts[0] === 1){points += 100}
+    if(numberCounts[1] === 6){points += 400}
+    else if(numberCounts[1] >= 3){points += 200}
+    if(numberCounts[2] === 6){points += 600}
+    else if(numberCounts[2] >= 3){points += 300}
+    if(numberCounts[3] === 6){points += 800}
+    else if(numberCounts[3] >= 3){points += 400}
+    if(numberCounts[4] === 6){points += 1000}
+    else if(numberCounts[4] === 5){points += 600}
+    else if(numberCounts[4] === 4){points += 550}
+    else if(numberCounts[4] === 3){points += 500}
+    else if(numberCounts[4] === 2){points += 100}
+    else if(numberCounts[4] === 1){points += 50}
+    if(numberCounts[5] === 6){points += 1200}
+    else if(numberCounts[5] >= 3){points += 600}
+
+    return points
+  }
+
+function numberCount(arr){
+    let numberCounts = [0,0,0,0,0,0]
+    for(i=0;i<arr.length;i++){
+        if(arr[i] === 1){numberCounts[0] += 1}
+        if(arr[i] === 2){numberCounts[1] += 1}
+        if(arr[i] === 3){numberCounts[2] += 1}
+        if(arr[i] === 4){numberCounts[3] += 1}
+        if(arr[i] === 5){numberCounts[4] += 1}
+        if(arr[i] === 6){numberCounts[5] += 1}
+    }
+    return numberCounts
+}
