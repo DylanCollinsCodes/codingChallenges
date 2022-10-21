@@ -1,0 +1,14 @@
+// Returns number of complete beeramid levels
+var beeramid = function(bonus, price) {
+    pyramid = 0
+    cost = 0
+    for(i = 0; i < bonus; i++){
+      pyramid = i ** 2
+      cost += pyramid * price
+      if(cost > bonus){
+        i--
+        break
+      }
+    }
+    return i
+  }
