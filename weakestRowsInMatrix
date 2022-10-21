@@ -1,0 +1,20 @@
+var kWeakestRows = function(mat, k) {
+    valArr = []
+    rowVal = 0;
+    resArr = []
+    for(i =0; i < mat.length; i++){
+        for(j = 0; j < mat[i].length; j++){
+            if(mat[i][j] !== 0){
+                rowVal += 1
+            }
+        }
+        valArr.push(rowVal)
+        rowVal = 0;
+    }
+    console.log(valArr)
+    for(i = 0; i < k; i++){
+        resArr.push(valArr.indexOf(Math.min(...valArr)))
+        valArr[valArr.indexOf(Math.min(...valArr))] = 1000
+    }
+    return resArr
+};
