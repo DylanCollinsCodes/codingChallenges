@@ -1,0 +1,41 @@
+function computeDepth(n){    
+//starting depth
+depth = 0
+currentValue = 0
+currentArray = 0
+finalArray = []
+while(arrayCheck(finalArray) === false || depth > 1000){
+// Step 1 multiply the number // add 1 to depth
+depth += 1
+currentValue = n * depth
+// break the value into an array
+currentArray = String(currentValue).split("").map((currentValue)=>{return Number(currentValue)})
+// check primary array if each value is already there
+// if not add it to the array
+for(i = 0; i < currentArray.length; i++){
+    if(finalArray.includes(currentArray[i])){
+
+    }else{
+        finalArray.push(currentArray[i])
+    }
+}
+finalArray.sort((a,b)=>a-b)
+}
+return depth
+}
+
+//check if you have desired array
+function arrayCheck(arr){
+    isTrue = true;
+
+    for(i = 0; i < 10; i++){
+        if(arr[i] === i){
+            
+        }else{
+            isTrue = false
+            break
+        }
+        
+    }
+    return isTrue
+}
