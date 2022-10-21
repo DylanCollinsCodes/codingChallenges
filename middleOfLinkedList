@@ -1,0 +1,9 @@
+var middleNode = function(head) {
+    slowCount = head
+    fastCount = head
+    while(fastCount !== null && fastCount.next !== null){
+        slowCount = slowCount.next
+        fastCount = fastCount.next.next
+    }
+    return slowCount
+};
