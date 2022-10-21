@@ -1,0 +1,31 @@
+snail = function(array) {
+    snailArray = []
+    while(array[0] !== undefined){
+        while(array[0][0] !== undefined){
+            snailArray.push(array[0][0])
+            array[0].shift()
+        }
+        array.shift()
+        for(i = 0; i < array.length; i++){
+            snailArray.push(array[i][array[i].length - 1])
+        }
+        for(i = 0; i < array.length; i++){
+            array[i].pop()
+        }
+        if(array[0] === undefined){
+            break;
+        }
+        tempArray = array.pop().reverse()
+        for(i = 0; i < tempArray.length;i++){
+            snailArray.push(tempArray[i])
+        }
+        for(i = array.length - 1; i > -1;i--){
+            snailArray.push(array[i][0])
+        }
+        for(i = 0; i < array.length; i++){
+            array[i].shift()
+        }
+    }
+    
+    return snailArray
+  }
