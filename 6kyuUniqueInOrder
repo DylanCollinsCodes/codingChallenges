@@ -1,0 +1,14 @@
+var uniqueInOrder=function(iterable){
+  if(typeof iterable === 'string'){
+    iterable.split('')
+  }
+  newArray = []
+  for(i = 0; i < iterable.length; i++){
+    if(iterable[i] === iterable[i - 1]){
+      
+    }else{
+      newArray.push(iterable[i])
+    }
+  }
+  return newArray
+}
