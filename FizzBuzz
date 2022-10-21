@@ -1,0 +1,15 @@
+var fizzBuzz = function(n) {
+    stringArray = []
+    for(i = 1; i <= n; i++){
+        if(i % 15 === 0){
+            stringArray.push('FizzBuzz')
+        }else if(i % 3 === 0){
+            stringArray.push('Fizz')
+        }else if(i % 5 === 0){
+            stringArray.push('Buzz')
+        }else{
+            stringArray.push(`${i}`)
+        }
+    }
+    return stringArray
+};
