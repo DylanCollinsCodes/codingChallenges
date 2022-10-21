@@ -1,0 +1,94 @@
+function formatDuration(seconds){
+    finalString = ''
+    if(seconds === 0){
+        finalString = 'now'
+    }
+    years = Math.floor(seconds / 31536000)
+    days = Math.floor(seconds / 86400)
+    hours = Math.floor(seconds / 3600)
+    minutes = Math.floor(seconds / 60)
+
+    while(days > 364){
+        days -= 365
+    }
+    while(hours > 23){
+        hours -= 24
+    }
+    while(minutes > 59){
+        minutes -= 60
+    }
+    while(seconds > 59){
+        seconds -= 60
+    }
+    if(years !== 0){
+        if(years > 1){
+            finalString += `${years} years, `
+        }else{
+            finalString += `${years} year, `
+        }
+    }
+    if(days !== 0){
+        if(days > 1){
+            finalString += `${days} days, `
+        }else{
+            finalString += `${days} day, `
+        }
+    }
+    if(hours !== 0){
+        if(hours > 1){
+            finalString += `${hours} hours, `
+        }else{
+            finalString += `${hours} hour, `
+        }
+    }
+    if(minutes !== 0 || seconds !== 0){
+        if(minutes === 0 || seconds === 0){
+            if(finalString[finalString.length - 1] === ' '){
+                finalString = finalString.split('')
+                finalString.pop()
+                finalString = finalString.join('')
+            }
+            if(finalString[finalString.length - 1] === ','){
+                finalString = finalString.split('')
+                finalString.pop()
+                finalString = finalString.join('')
+            }
+            finalString += ' and '
+        }
+        if(minutes > 1){
+            finalString += `${minutes} minutes `
+           }else if(minutes === 1){
+            finalString += `${minutes} minute `
+        }
+        if(minutes !== 0 && seconds !== 0){
+            finalString += 'and '
+        }
+        if(seconds > 1){
+            finalString += `${seconds} seconds`
+        }else if(seconds === 1){
+            finalString += `${seconds} second`
+        }
+    }
+    if(finalString[finalString.length - 1] === ' '){
+        finalString = finalString.split('')
+        finalString.pop()
+        finalString = finalString.join('')
+    }
+    if(finalString[finalString.length - 1] === ','){
+        finalString = finalString.split('')
+        finalString.pop()
+        finalString = finalString.join('')
+    }
+
+    if(finalString[0] === ' '){
+        finalString = finalString.split('')
+        finalString.shift()
+        finalString.shift()
+        finalString.shift()
+        finalString.shift()
+        finalString.shift()
+        finalString = finalString.join('')
+    }
+
+    return finalString
+}
