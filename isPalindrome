@@ -1,0 +1,15 @@
+var isPalindrome = function(x) {
+    x = x.toString()
+    x.split('')
+    len = x.length
+    j = x.length - 1
+    for(i = 0; i < len; i++){
+        if(x[i] !== x[j]){
+            return false
+        }
+        if(i === j || i > j){
+            return true
+        }
+        j--
+    }
+};
