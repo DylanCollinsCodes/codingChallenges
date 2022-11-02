@@ -1,0 +1,46 @@
+function validate(n){
+    n = numberToArray(n)
+    len = n.length
+    for(i = len - 2; i >= 0; i-= 2){
+        n[i] *= 2
+        if(n[i] > 9){
+            n[i] = numberToArray(n[i])
+            n[i] = n[i].reduce((a,b)=>a+b)
+       }
+    }
+    n = n.reduce((a,b)=>a+b)
+    return n ? n % 10 === 0 : false
+}
+
+function numberToArray(n){
+    nString = `${n}`
+    nString = nString.split('')
+    len = nString.length
+    for(j = 0; j < len; j++){
+        nString[j] = +nString[j]
+    }
+    return nString
+}
+____________________________________________________________________________________
+function validate(n){
+    n = numberToArray(n)
+    len = n.length
+    for(i = len - 2; i >= 0; i-= 2){
+        n[i] *= 2
+        if(n[i] > 9){
+            n[i] -= 9
+        }
+    }
+    n = n.reduce((a,b)=>a+b)
+    return n ? n % 10 === 0 : false
+}
+
+function numberToArray(n){
+    nString = `${n}`
+    nString = nString.split('')
+    len = nString.length
+    for(i = 0; i < len; i++){
+        nString[i] = +nString[i]
+    }
+    return nString
+}
