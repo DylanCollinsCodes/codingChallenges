@@ -1,0 +1,10 @@
+var isPalindrome = function(head){
+    let original = ''
+    let reverse = ''
+    while(head){
+        original += head.val
+        reverse = head.val + reverse
+        head = head.next
+    }
+    return original === reverse
+}
