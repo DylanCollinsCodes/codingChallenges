@@ -1,0 +1,131 @@
+function validSolution(board){
+    len = board.length
+    tempArr = []
+    for(i = 0; i < len; i++){
+        isValid = oneThroughNine(board[i])
+        if(isValid === false){
+            break
+        }
+    }
+    for(i = 0; i < len; i++){
+        for(c = 0; c < len; c++){
+            tempArr.push(board[c][i])
+        }
+        isValid = oneThroughNine(tempArr)
+        if(isValid === false){
+            break
+        }
+        tempArr = []
+    }
+    for(i = 0; i < 3; i++){
+        for(c = 0; c < 3; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    
+    for(i = 0; i < 3; i++){
+        for(c = 3; c < 6; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 0; i < 3; i++){
+        for(c = 6; c < 9; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 3; i < 6; i++){
+        for(c = 0; c < 3; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 6; i < 9; i++){
+        for(c = 0; c < 3; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 3; i < 6; i++){
+        for(c = 3; c < 6; c++){
+            tempArr.push(board[i][c])
+        }
+    }
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 6; i < 9; i++){
+        for(c = 6; c < 9; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 3; i < 6; i++){
+        for(c = 6; c < 9; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    for(i = 6; i < 9; i++){
+        for(c = 3; c < 6; c++){
+            tempArr.push(board[i][c])
+        }
+    }    
+    isValid = oneThroughNine(tempArr)
+    tempArr = []
+    if(isValid === false){
+        return isValid
+    }
+    return isValid
+}
+
+  function oneThroughNine(arr){
+    valid = true
+    numArr = [0,0,0,0,0,0,0,0,0,0]
+    lenThree = arr.length
+    lenTwo = numArr.length
+    for(j = 0; j < lenThree; j++){
+        numArr[arr[j]] += 1
+    }
+    for(j = 1; j < lenTwo; j++){
+        if(numArr[j] !== 1){
+            valid = false
+        }
+    }
+    if(numArr[0] > 0){
+        valid = false
+    }
+    return valid
+  }
