@@ -1,0 +1,11 @@
+var moveZeroes = function(nums) {
+  len = nums.length
+  j = 0;
+  for(i = 0; i < len; i++){
+    if(nums[i] !== 0){
+      [nums[i], nums[j]] = [nums[j], nums[i]]
+      j++
+    }
+  }
+  return nums
+};
