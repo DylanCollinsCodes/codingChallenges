@@ -1,0 +1,1 @@
+var sortedSquares = (arr) => {return arr.map(e => e ** 2).sort((a,b)=>a-b)}
