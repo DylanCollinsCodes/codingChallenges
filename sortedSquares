@@ -1,0 +1,7 @@
+var sortedSquares = function(nums) {
+    len = nums.length
+    for(i = 0; i < len; i++){
+        nums[i] **= 2
+    }
+    return nums.sort((a,b)=>a-b)  
+};
