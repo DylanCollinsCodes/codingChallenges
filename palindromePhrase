@@ -1,0 +1,16 @@
+function isLetter(str) {
+    return str.length === 1 && str.match(/[a-z0-9]/i);
+  }
+
+var isPalindrome = function(s) {
+    s = s.toLowerCase()
+    s = s.split('')
+    len = s.length
+    arr = []
+    for(i = 0; i < len; i++){
+        if(isLetter(s[i])){
+            arr.push(s[i])
+        }
+    }
+    return arr.join('') === arr.reverse().join('')
+};
