@@ -1,0 +1,10 @@
+var missingNumber = function(nums) {
+    len = nums.length
+    nums = nums.sort((a,b)=>a-b)
+    for(i = 0; i < len; i++){
+        if(nums[i] !== i){
+            return i
+        }
+    }
+    return i
+};
