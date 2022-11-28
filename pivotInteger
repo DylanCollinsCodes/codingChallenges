@@ -1,0 +1,22 @@
+var pivotInteger = function(n) {
+      arrOne = []
+      arrTwo = []
+      j = n
+      holderOne = 0
+      holderTwo = 0
+      for(i = 1; i <= n; i++){
+        holderOne += i
+        arrOne.push(holderOne)
+
+        holderTwo += j
+        arrTwo.unshift(holderTwo)
+
+        j--
+      }
+      for(i = 0; i < arrOne.length; i++){
+        if(arrOne[i] === arrTwo[i]){
+            return i + 1
+        }
+      }
+      return -1
+};
