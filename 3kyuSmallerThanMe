@@ -1,0 +1,156 @@
+function smaller(nums){
+    console.log(nums)
+    ansArr = []
+    negOne = []
+    negTwo = []    
+    negThree = []    
+    negFour = []    
+    posOne = []
+    posTwo = []
+    posThree = []
+    posFour = []
+    negOne.length = 250
+    negTwo.length = 250
+    negThree.length = 250
+    negFour.length = 250
+    posOne.length = 250
+    posTwo.length = 250
+    posThree.length = 250
+    posFour.length = 251
+    negOneCount = 0
+    negTwoCount = 0
+    negThreeCount = 0
+    negFourCount = 0
+    posOneCount = 0
+    posTwoCount = 0
+    posThreeCount = 0
+    posFourCount = 0
+    len = nums.length - 1
+    for(i = len; i >= 0; i--){
+        count = 0
+        if(nums[i] >= 0){
+            if(nums[i] >= 0 && nums[i] < 250){
+                if(typeof posOne[nums[i]] === 'undefined'){
+                    posOne[nums[i]] = 0
+                }
+                posOne[nums[i]] += 1
+                posOneCount += 1
+                count = negOneCount + negTwoCount + negThreeCount + negFourCount
+                for(j = nums[i] - 1; j >= 0; j--){
+                    if(posOne[j] > 0){
+                        count += posOne[j]
+                    }
+                }
+            }
+            if(nums[i] >= 250 && nums[i] < 500){
+                convertNumber = nums[i] - 250
+                if(typeof posTwo[convertNumber] === 'undefined'){
+                    posTwo[convertNumber] = 0
+                }
+                posTwo[convertNumber] += 1
+                posTwoCount += 1
+                count = posOneCount + negOneCount + negTwoCount + negThreeCount + negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(posTwo[j] > 0){
+                        count += posTwo[j]
+                    }
+                }
+            }
+            if(nums[i] >= 500 && nums[i] < 750){
+                convertNumber = nums[i] - 500
+                if(typeof posThree[convertNumber] === 'undefined'){
+                    posThree[convertNumber] = 0
+                }
+                posThree[convertNumber] += 1
+                posThreeCount += 1
+                count = posTwoCount + posOneCount + negOneCount + negTwoCount + negThreeCount + negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(posThree[j] > 0){
+                        count += posThree[j]
+                    }
+                }
+            }
+            if(nums[i] >= 750 && nums[i] <= 1000){
+                convertNumber = nums[i] - 750
+                if(typeof posFour[convertNumber] === 'undefined'){
+                    posFour[convertNumber] = 0
+                }
+                posFour[convertNumber] += 1
+                posFourCount += 1
+                count = posThreeCount + posTwoCount + posOneCount + negOneCount + negTwoCount + negThreeCount + negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(posFour[j] > 0){
+                        count += posFour[j]
+                    }
+                }
+            }
+        }else{
+            if(nums[i] < 0 && nums[i] >= -250){
+                convertNumber = nums[i] + 250
+                if(typeof negOne[convertNumber] === 'undefined'){
+                    negOne[convertNumber] = 0
+                }
+                negOne[convertNumber] += 1
+                negOneCount += 1
+                count = negTwoCount + negThreeCount + negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(negOne[j] > 0){
+                        count += negOne[j]
+                    }
+                }
+            }
+            if(nums[i] < -250 && nums[i] >= -500){
+                convertNumber = nums[i] + 500
+                if(typeof negTwo[convertNumber] === 'undefined'){
+                    negTwo[convertNumber] = 0
+                }
+                negTwo[convertNumber] += 1
+                negTwoCount += 1
+                count = negThreeCount + negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(negTwo[j] > 0){
+                        count += negTwo[j]
+                    }
+                }
+            }
+            if(nums[i] < -500 && nums[i] >= -750){
+                convertNumber = nums[i] + 750
+                if(typeof negThree[convertNumber] === 'undefined'){
+                    negThree[convertNumber] = 0
+                }
+                negThree[convertNumber] += 1
+                negThreeCount += 1
+                count = negFourCount
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(negThree[j] > 0){
+                        count += negThree[j]
+                    }
+                }
+            }
+            if(nums[i] < -750 && nums[i] >= -1000){
+                convertNumber = nums[i] + 1000
+                if(typeof negFour[convertNumber] === 'undefined'){
+                    negFour[convertNumber] = 0
+                }
+                negFour[convertNumber] += 1
+                negFourCount += 1
+                for(j = convertNumber - 1; j >= 0; j--){
+                    if(negFour[j] > 0){
+                        count += negFour[j]
+                    }
+                }
+            }
+        }
+        ansArr.push(count)
+    }
+    return simpleReverse(ansArr)
+}
+
+function simpleReverse(arr){
+    newArr = []
+    len = arr.length - 1
+    for(i = len; i >= 0; i--){
+        newArr.push(arr[i])
+    }
+    return newArr
+}
