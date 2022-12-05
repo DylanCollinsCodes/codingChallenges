@@ -1,0 +1,19 @@
+var reverse = function(x) {
+    x = String(x).split('').reverse()  
+    len = x.length
+    for(i = 0; i < len; i++){
+        if(x[i] !== '0'){
+            break
+        }else{
+            x.shift()
+            len -= 1
+            i--
+        }
+    }
+    console.log(x)
+    if(x[len - 1] === '-'){
+        x.pop()
+        x.unshift('-')
+    }
+    return Number(x.join('')) > -2147483648 && Number(x.join('')) < 2147483648 ? Number(x.join('')) : 0
+}; 
