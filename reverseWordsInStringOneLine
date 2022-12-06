@@ -1,0 +1,1 @@
+var reverseWords = s => {return revArr = s.split(" ").map(word => word.split('').reverse().join('')).join(' ')}
