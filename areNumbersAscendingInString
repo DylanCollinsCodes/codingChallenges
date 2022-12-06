@@ -1,0 +1,15 @@
+var areNumbersAscending = function(s) {
+    s = s.split(' ')
+    len = s.length
+    currentNumber = 0
+    for(i = 0; i < len; i++){
+        if(isNaN(Number(s[i]))){
+        }else{
+            if(currentNumber >= Number(s[i])){
+                return false
+            }
+            currentNumber = Number(s[i])
+        }
+    }
+    return true
+};
