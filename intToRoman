@@ -1,0 +1,46 @@
+var intToRoman = function(num) {
+    ansStr = ""
+    while(num > 0){
+        if(num >= 1000){
+            ansStr += "M"
+            num -= 1000
+        }else if(num >= 900){
+            ansStr += "CM"
+            num -= 900
+        }else if(num >= 500){
+            ansStr += "D"
+            num -= 500
+        }else if(num >= 400){
+            ansStr += "CD"
+            num -= 400
+        }else if(num >= 100){
+            ansStr += "C"
+            num -= 100
+        }else if(num >= 90){
+            ansStr += "XC"
+            num -= 90
+        }else if(num >= 50){
+            ansStr += "L"
+            num -= 50
+        }else if(num >= 40){
+            ansStr += "XL"
+            num -= 40
+        }else if(num >= 10){
+            ansStr += "X"
+            num -= 10
+        }else if(num >= 9){
+            ansStr += "IX"
+            num -= 9
+        }else if(num >= 5){
+            ansStr += "V"
+            num -= 5
+        }else if(num >= 4){
+            ansStr += "IV"
+            num -= 4
+        }else if(num >= 1){
+            ansStr += "I"
+            num -= 1
+        }
+    }
+    return ansStr
+};
