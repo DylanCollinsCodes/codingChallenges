@@ -1,0 +1,43 @@
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 1){
+        return strs[0]
+    }
+    len = strs.length
+    shortestWord = 201
+    indexOfWord = 0;
+    commonPrefix = ""
+    answ = []
+    for(i = 0; i < len; i++){
+        if(strs[i].length < shortestWord){
+            shortestWord = strs[i].length
+            indexOfWord = strs.indexOf(strs[i])
+        }
+        if(strs[i].length === 0){
+            return ""
+        }
+    }
+    for(i = 0; i < len; i++){
+        if(i === indexOfWord){
+            continue
+        }
+        for(j = 0; j < strs[i].length;j++){
+            if(strs[i][j] === strs[indexOfWord][j]){
+                commonPrefix += strs[i][j]
+            }else{
+                break
+            }
+        }
+        answ.push(commonPrefix)
+        commonPrefix = ""
+    }
+    shortestWord = 201
+    indexOfWord = 0;
+    len = answ.length
+    for(i = 0; i < len; i++){
+        if(answ[i].length < shortestWord){
+            shortestWord = answ[i].length
+            indexOfWord = answ.indexOf(answ[i])
+        }
+    }
+    return answ[indexOfWord]
+};
