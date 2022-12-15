@@ -1,0 +1,23 @@
+var lengthOfLongestSubstring = function(s) {
+    tempArr = []
+    strArr = []
+    lastUniqueStart = 0;
+    for(i = 0; i < s.length; i++){
+        if(tempArr.includes(s[i])){
+            if(tempArr.length > strArr.length){
+                strArr = tempArr
+            }   
+            tempArr = []
+            i -= lastUniqueStart - 1
+            lastUniqueStart = 1 
+            tempArr.push(s[i])
+        }else{
+            tempArr.push(s[i])
+            if(tempArr.length > strArr.length){
+                strArr = tempArr
+            }
+            lastUniqueStart += 1
+        }   
+    }
+    return strArr.length
+};
